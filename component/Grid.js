@@ -10,6 +10,13 @@ export default function Grid() {
     const newBoxStates = [...boxStates];
     var newPreBoxState = [...preBoxState];
 
+    // if already red then do nothing
+    for (let i = 0; i < newPreBoxState.length; i++) {
+      if (newPreBoxState[i] == index) {
+        return;
+      }
+    }
+
     // if length is greater than two then we will remove the 1st index
     if (newPreBoxState.length >= 2) {
       var lastIndex = newPreBoxState[0];
@@ -43,7 +50,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "center",
-    padding:20
+    padding: 20,
   },
   box: {
     width: "25%",
